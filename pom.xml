@@ -101,8 +101,10 @@
             <artifactId>exec-maven-plugin</artifactId>
             <executions>
               <!-- delete the service first -->
+              <!-- we accept 1 as the service may not exist already -->
+              <!--
               <execution>
-                <id>delete-remote-perf-app</id>
+                <id>delete-helloworld-servlet-app</id>
                 <phase>install</phase>
                 <goals>
                   <goal>exec</goal>
@@ -110,13 +112,12 @@
                 <configuration>
                   <workingDirectory>${project.build.directory}/</workingDirectory>
                   <executable>gcloud</executable>
-                  <!-- we accept 1 as the service may not exist already -->
                   <successCodes>
                     <successCode>0</successCode>
                     <successCode>1</successCode>
                   </successCodes>
                   <arguments>
-                    <argument>--quiet</argument>
+                    <argument>- -quiet</argument>
                     <argument>app</argument>
                     <argument>services</argument>
                     <argument>delete</argument>
@@ -124,9 +125,10 @@
                   </arguments>
                 </configuration>
               </execution>
+              -->
               <!-- deploy the service -->
               <execution>
-                <id>deploy-remote-perf-app</id>
+                <id>deploy-helloworld-servlet-app</id>
                 <phase>install</phase>
                 <goals>
                   <goal>exec</goal>
